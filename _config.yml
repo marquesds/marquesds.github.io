@@ -6,7 +6,7 @@ language: 'pt-BR'
 words_per_minute: 200
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: https://marquesds.github.io/
+baseurl: /
 
 # Website info
 title: Lucas Marques
