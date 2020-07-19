@@ -6,7 +6,7 @@ language: 'en-uk'
 words_per_minute: 200
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: /jasper2/
+baseurl: /
 
 # Website info
 title: Ghost
@@ -71,7 +71,7 @@ username: marquesds
 repo: marquesds.github.io
 branch: master
 relative_source: ../marquesds.github.io/
-destination: ../jasper2-pages/
+destination: ../marquesds.github.io-pages/
 production_url:  https://marquesds.github.io/jasper2/
 source_url:  https://github.com/marquesds/marquesds.github.io/
 
