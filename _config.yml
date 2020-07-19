@@ -2,17 +2,17 @@
 markdown: kramdown
 highlighter: rouge
 paginate: 100 # it will paginate after this number
-language: 'en-uk'
+language: 'pt-BR'
 words_per_minute: 200
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: /
 
 # Website info
-title: Ghost
-description: The professional publishing platform
+title: Lucas Marques
+description: Knowledge repository of a guy with memory issues.
 cover: assets/images/blog-cover.jpg
-logo: assets/images/blog-icon.png
+logo:
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
 CNAME: #add cname for website to be created
@@ -22,12 +22,12 @@ navigation: True # show the navbar links
 subscribers: True # you need to connect an external service for this to work,
 # if 'True' the submit button is disabled for now, but you can change that
 # by editing `_includes/subscribe-form.html`
-twitter: lmarquesds # replace by your username
-facebook: ghost # replace by your username
+twitter: lmarquesds
+facebook:
 
 # Disqus
-disqus: False
-disqus_shortname: jekyller # replace with your disqus username
+disqus: True
+disqus_shortname: lmarquesds
 
 # Google Analytics
 google_analytics: UA-69281367-1 # replace with your GA tracking identifier
