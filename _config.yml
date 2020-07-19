@@ -70,10 +70,10 @@ lsi: False
 username: jekyller
 repo: jasper2
 branch: master
-relative_source: ../jasper2/
+relative_source: ../marquesds.github.io/
 destination: ../jasper2-pages/
-production_url:  https://jekyller.github.io/jasper2/
-source_url:  https://github.com/jekyller/jasper2/
+production_url:  https://marquesds.github.io/jasper2/
+source_url:  https://github.com/marquesds/marquesds.github.io/
 
 exclude:
   - assets/css
