@@ -70,7 +70,7 @@ lsi: False
 username: marquesds
 repo: marquesds.github.io
 branch: master
-relative_source: ../
+relative_source: ../marquesds.github.io/
 destination: ../jasper2-pages/
 production_url:  https://marquesds.github.io/
 source_url:  https://github.com/marquesds/marquesds.github.io
