@@ -71,8 +71,8 @@ username: marquesds
 repo: marquesds.github.io
 branch: master
 relative_source: ../
-destination: ../jasper2-pages/
-production_url:  https://marquesds.github.io/
+destination: ../marquesds.github.io-pages/
+production_url:  https://marquesds.github.io
 source_url:  https://github.com/marquesds/marquesds.github.io/
 
 exclude:
