@@ -6,7 +6,7 @@ language: 'pt-BR'
 words_per_minute: 200
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: /blog/
+baseurl: /
 
 # Website info
 title: Lucas Marques
@@ -70,9 +70,9 @@ lsi: False
 username: marquesds
 repo: marquesds.github.io
 branch: master
-relative_source: ../blog/
+relative_source: ../
 destination: ../jasper2-pages/
-production_url:  https://marquesds.github.io/blog/
+production_url:  https://marquesds.github.io/
 source_url:  https://github.com/marquesds/marquesds.github.io/
 
 exclude:
