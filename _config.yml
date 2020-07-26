@@ -30,7 +30,7 @@ disqus: True
 disqus_shortname: lmarquesds
 
 # Google Analytics
-google_analytics: UA-69281367-1 # replace with your GA tracking identifier
+google_analytics: UA-88170980-1
 
 # Permalinks
 permalink: /:title
@@ -72,7 +72,7 @@ repo: marquesds.github.io
 branch: master
 relative_source: ../
 destination: ../marquesds.github.io-pages/
-production_url:  https://marquesds.github.io
+production_url:  https://lucasmarques.me
 source_url:  https://github.com/marquesds/marquesds.github.io/
 
 exclude:
