@@ -2,3 +2,11 @@ python:
   name: python
   description: False
   cover: False
+linux:
+  name: linux
+  description: False
+  cover: False
+snippets:
+  name: snippets
+  description: False
+  cover: False
