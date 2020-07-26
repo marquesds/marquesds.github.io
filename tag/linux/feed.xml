@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/linux/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2020-07-26T00:33:10-03:00</updated>
+  <updated>2020-07-26T12:11:16-03:00</updated>
   <id>/tag/linux/feed.xml</id>
 
   
@@ -30,45 +30,6 @@
   
   
 
-  
-    <entry>
-      <title type="html">Flush Memcached</title>
-      <link href="/flush-memcached" rel="alternate" type="text/html" title="Flush Memcached" />
-      <published>2017-09-14T07:00:00-03:00</published>
-      <updated>2017-09-14T07:00:00-03:00</updated>
-      <id>/flush-memcached</id>
-      <content type="html" xml:base="/flush-memcached">&lt;p&gt;To flush your local memcached follow the steps below:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;telnet 127.0.0.1 11211
-flush_all
-quit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Lucas Marques</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="linux" />
-      
-
-      
-        <summary type="html">To flush your local memcached follow the steps below:</summary>
-      
-
-      
-      
-    </entry>
   
     <entry>
       <title type="html">How to create a new Ubuntu user via bash</title>

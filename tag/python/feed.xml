@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/tag/python/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2020-07-26T00:33:10-03:00</updated>
+  <updated>2020-07-26T12:11:16-03:00</updated>
   <id>/tag/python/feed.xml</id>
 
   
@@ -42,7 +42,7 @@
 &lt;ul&gt;
   &lt;li&gt;Instale o &lt;a href=&quot;https://github.com/pyenv/pyenv&quot;&gt;pyenv&lt;/a&gt;, ele facilita o gerenciamento de versões do Python sem muita dor de cabeça;&lt;/li&gt;
   &lt;li&gt;Use a &lt;a href=&quot;https://virtualenv.pypa.io/en/latest/&quot;&gt;virtualenv&lt;/a&gt;, ela isola as instalações das dependências Python para que você não precise instalar direto no teu sistema operacional (gerando mais dor de cabeça ainda). Ela vem por default nas versões mais atuais do Python, bastando digitar o comando para criar uma virtualenv: &lt;code class=&quot;highlighter-rouge&quot;&gt;python -m venv .nome_tua_venv&lt;/code&gt;;&lt;/li&gt;
-  &lt;li&gt;Baixe o dataset que analisaremos, ele mostra ocorrências aeronáuticas na aviação civil brasileira; no site ele é chamado de Tabelas de Ocorrências: &lt;a href=&quot;&quot;&gt;http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;Baixe o dataset que analisaremos, ele mostra ocorrências aeronáuticas na aviação civil brasileira; no site ele é chamado de Tabelas de Ocorrências: &lt;a href=&quot;http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira&quot;&gt;http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira&lt;/a&gt;;&lt;/li&gt;
   &lt;li&gt;Com a virtualenv ativada, instale as dependências necessárias com o comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install jupyter pandas matplotlib&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
