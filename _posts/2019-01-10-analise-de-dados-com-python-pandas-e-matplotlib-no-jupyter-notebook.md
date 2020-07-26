@@ -16,7 +16,7 @@ author: lucas
 
   - Instale o [pyenv](https://github.com/pyenv/pyenv), ele facilita o gerenciamento de versões do Python sem muita dor de cabeça;
   - Use a [virtualenv](https://virtualenv.pypa.io/en/latest/), ela isola as instalações das dependências Python para que você não precise instalar direto no teu sistema operacional (gerando mais dor de cabeça ainda). Ela vem por default nas versões mais atuais do Python, bastando digitar o comando para criar uma virtualenv: `python -m venv .nome_tua_venv`;
-  - Baixe o dataset que analisaremos, ele mostra ocorrências aeronáuticas na aviação civil brasileira; no site ele é chamado de Tabelas de Ocorrências: [http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira]();
+  - Baixe o dataset que analisaremos, ele mostra ocorrências aeronáuticas na aviação civil brasileira; no site ele é chamado de Tabelas de Ocorrências: [http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira](http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira);
   - Com a virtualenv ativada, instale as dependências necessárias com o comando: `pip install jupyter pandas matplotlib`
 
 ## Rodando o Jupyter
