@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
+  <link href="/tag/linux/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="/" rel="alternate" type="text/html" />
+  <updated>2020-07-25T23:58:19-03:00</updated>
+  <id>/tag/linux/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Lucas Marques | </title>
+  
+
+  
+    <subtitle>Knowledge repository of a guy with memory issues.</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Flush Memcached</title>
+      <link href="/flush-memcached" rel="alternate" type="text/html" title="Flush Memcached" />
+      <published>2017-09-14T07:00:00-03:00</published>
+      <updated>2017-09-14T07:00:00-03:00</updated>
+      <id>/flush-memcached</id>
+      <content type="html" xml:base="/flush-memcached">&lt;p&gt;To flush your local memcached follow the steps below:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;telnet 127.0.0.1 11211
+flush_all
+quit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="linux" />
+      
+
+      
+        <summary type="html">To flush your local memcached follow the steps below:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">How to create a new Ubuntu user via bash</title>
+      <link href="/create-ubuntu-user" rel="alternate" type="text/html" title="How to create a new Ubuntu user via bash" />
+      <published>2017-09-10T07:00:00-03:00</published>
+      <updated>2017-09-10T07:00:00-03:00</updated>
+      <id>/create-ubuntu-user</id>
+      <content type="html" xml:base="/create-ubuntu-user">&lt;p&gt;Follow the steps below to create a new user with sudo privileges on Ubuntu:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Add an user lucas and its home folder at /home/lucas&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;useradd &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /home/lucas &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; lucas
+&lt;span class=&quot;c&quot;&gt;# Add a password for user lucas&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;passwd lucas
+&lt;span class=&quot;c&quot;&gt;# Make bash as default terminal&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash lucas
+&lt;span class=&quot;c&quot;&gt;# Add lucas to sudoers group&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;adduser lucas &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="snippets" />
+      
+        <category term="linux" />
+      
+
+      
+        <summary type="html">Follow the steps below to create a new user with sudo privileges on Ubuntu:</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="/author/lucas/feed.xml" rel="self" type="application/atom+xml" />
   <link href="/" rel="alternate" type="text/html" />
-  <updated>2020-07-25T23:13:21-03:00</updated>
+  <updated>2020-07-25T23:58:19-03:00</updated>
   <id>/author/lucas/feed.xml</id>
 
   
@@ -30,6 +30,184 @@
   
   
 
+  
+    <entry>
+      <title type="html">Análise de dados com Python, Pandas e Matplotlib no Jupyter Notebook</title>
+      <link href="/analise-de-dados-com-python-pandas-e-matplotlib-no-jupyter-notebook" rel="alternate" type="text/html" title="Análise de dados com Python, Pandas e Matplotlib no Jupyter Notebook" />
+      <published>2019-01-10T08:00:00-02:00</published>
+      <updated>2019-01-10T08:00:00-02:00</updated>
+      <id>/analise-de-dados-com-python-pandas-e-matplotlib-no-jupyter-notebook</id>
+      <content type="html" xml:base="/analise-de-dados-com-python-pandas-e-matplotlib-no-jupyter-notebook">&lt;h2 id=&quot;antes-de-começarmos&quot;&gt;Antes de começarmos,&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instale o &lt;a href=&quot;https://github.com/pyenv/pyenv&quot;&gt;pyenv&lt;/a&gt;, ele facilita o gerenciamento de versões do Python sem muita dor de cabeça;&lt;/li&gt;
+  &lt;li&gt;Use a &lt;a href=&quot;https://virtualenv.pypa.io/en/latest/&quot;&gt;virtualenv&lt;/a&gt;, ela isola as instalações das dependências Python para que você não precise instalar direto no teu sistema operacional (gerando mais dor de cabeça ainda). Ela vem por default nas versões mais atuais do Python, bastando digitar o comando para criar uma virtualenv: &lt;code class=&quot;highlighter-rouge&quot;&gt;python -m venv .nome_tua_venv&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;Baixe o dataset que analisaremos, ele mostra ocorrências aeronáuticas na aviação civil brasileira; no site ele é chamado de Tabelas de Ocorrências: &lt;a href=&quot;&quot;&gt;http://dados.gov.br/dataset/ocorrencias-aeronauticas-da-aviacao-civil-brasileira&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;Com a virtualenv ativada, instale as dependências necessárias com o comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install jupyter pandas matplotlib&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rodando-o-jupyter&quot;&gt;Rodando o Jupyter&lt;/h2&gt;
+
+&lt;p&gt;Para rodar o Jupyter Notebook basta executar o comando: &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter notebook&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ele deve te redirecionar para uma tela parecida com a abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/notebook-initial-screen.png&quot; alt=&quot;Notebook initial screen&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;criando-um-novo-notebook&quot;&gt;Criando um novo notebook&lt;/h2&gt;
+
+&lt;p&gt;Para criar um novo notebook basta clicar em New -&amp;gt; Python 3, como na imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/notebook-new-options.png&quot; alt=&quot;Notebook new options&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;importando-as-dependências&quot;&gt;Importando as dependências&lt;/h2&gt;
+
+&lt;p&gt;Agora com nosso notebook aberto importaremos as dependências (pandas e matbplotlib):&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A linha &lt;code class=&quot;highlighter-rouge&quot;&gt;%matplotlib inline&lt;/code&gt; diz ao Jupyter que queremos mostrar os gráficos da Matplotlib no próprio notebook.&lt;/p&gt;
+
+&lt;h2 id=&quot;importando-o-dataset&quot;&gt;Importando o dataset&lt;/h2&gt;
+
+&lt;p&gt;Mova o arquivo CSV para a pasta que você está rodando o Jupyter e em seu notebook importe o dataset com o pandas da seguinte maneira:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ocorrencias_aeronauticas.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'~'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note que estamos enviando &lt;code class=&quot;highlighter-rouge&quot;&gt;sep='~'&lt;/code&gt; como parâmetro, isso quer dizer que o separador que nosso arquivo CSV está utilizando é o til.&lt;/p&gt;
+
+&lt;p&gt;Se você digitar dados no notebook e apertar &lt;em&gt;SHIFT+ENTER&lt;/em&gt; verá um preview dos teus dados em forma de tabela. Eles foram transformados em um tipo de dado chamado &lt;em&gt;DataFrame&lt;/em&gt; que é basicamente a representação dos teus dados em forma de uma tabela, similar à maneira como os dados são salvos e visualizados em um banco de dados relacional.&lt;/p&gt;
+
+&lt;h2 id=&quot;informações-gerais-sobre-o-dataset&quot;&gt;Informações gerais sobre o dataset&lt;/h2&gt;
+
+&lt;p&gt;O código abaixo retorna informações gerais sobre teu dataset:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/dataset-info.png&quot; alt=&quot;Dataset info&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Explore um pouco funções e atributos como &lt;code class=&quot;highlighter-rouge&quot;&gt;dados.dtypes&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;dados.head(3)&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;dados.tail(3)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;top-5-datas-com-o-maior-número-de-ocorrências&quot;&gt;Top 5 datas com o maior número de ocorrências&lt;/h2&gt;
+
+&lt;p&gt;Para retornar as cinco datas com maior número de ocorrências rode o código abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_dia&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value_counts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Top 5'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Como vimos nas informações gerais do dataset, uma das colunas da tabela chama-se ocorrencia_dia. O pandas converte cada coluna em um tipo de dado chamado &lt;em&gt;Series&lt;/em&gt;. Este tipo de dado tem uma função chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;value_counts()&lt;/code&gt; que retorna a soma dos valores únicos contidos para a coluna em questão e ordena esses dados de forma descendente (do maior para o menor).&lt;/p&gt;
+
+&lt;p&gt;O método &lt;code class=&quot;highlighter-rouge&quot;&gt;head(5)&lt;/code&gt;, como já vimos, retorna os primeiros N resultados, no nosso caso, os primeiros cinco.&lt;/p&gt;
+
+&lt;p&gt;O método &lt;code class=&quot;highlighter-rouge&quot;&gt;to_frame&lt;/code&gt; transforma nossa &lt;em&gt;Series&lt;/em&gt; em um &lt;em&gt;Dataframe&lt;/em&gt; para que o resultado possa ser exibido em forma de tabela.&lt;/p&gt;
+
+&lt;p&gt;O resultado deve ser parecido com o abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/top-five.png&quot; alt=&quot;Top five&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ocorrências-de-acidentes-na-cidade-de-são-paulo&quot;&gt;Ocorrências de acidentes na cidade de São Paulo&lt;/h2&gt;
+
+&lt;p&gt;Para gerar uma tabela com as ocorrências de acidentes que ocorreram na cidade de São Paulo, precisaremos fazer uma query no nosso dataset. Conceitualmente, a query é bem semelhante ao que temos no SQL, mas a sintaxe é completamente diferente:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_cidade&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'SÃO PAULO'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_classificacao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ACIDENTE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dados_acidentes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dados_acidentes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Estamos montando a query na primeira linha, onde mostramos que queremos retornar dados onde &lt;em&gt;ocorrencia_cidade&lt;/em&gt; seja igual a &lt;em&gt;SÃO PAULO&lt;/em&gt; e &lt;em&gt;ocorrencia_classificacao&lt;/em&gt; igual a &lt;em&gt;ACIDENTE&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Na segunda linha passamos a query para nosso &lt;em&gt;Dataframe&lt;/em&gt; como se estivéssemos tentando buscar um valor passando uma chave em um dicionário, isso acontece já que por trás dos panos o &lt;em&gt;Dataframe&lt;/em&gt; utiliza o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Dataframe.__getitem__()&lt;/code&gt; para retornar um novo &lt;em&gt;Dataframe&lt;/em&gt;, mas com os resultados que satisfizeram a query informada. Quem já conhece como funciona um dicionário no Python sabe que que por trás de &lt;code class=&quot;highlighter-rouge&quot;&gt;meu_dicio['minha_chave']&lt;/code&gt; existe um método &lt;code class=&quot;highlighter-rouge&quot;&gt;meu_dicio.__getitem__()&lt;/code&gt; que faz a mágica que retorna o valor correspondente à chave informada.&lt;/p&gt;
+
+&lt;p&gt;A terceira linha apenas mostra os resultados.&lt;/p&gt;
+
+&lt;h2 id=&quot;gráfico-de-ocorrências-por-estado&quot;&gt;Gráfico de ocorrências por estado&lt;/h2&gt;
+
+&lt;p&gt;Primeiramente, vamos configurar o tamanho da imagem que queremos gerar para o gráfico, bem como o tamanho da fonte. Note que agora estamos utilizando a Matplotlib:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'figure'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rcParams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'font.size'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para gerar o gráfico, basta executar o código abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grupo_estado&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_uf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value_counts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'UF'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ocorrências'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Estamos gerando um gráfico de barras com a contagem única de ocorrências por UF e adicionando labels aos eixos X e Y.&lt;/p&gt;
+
+&lt;p&gt;O resultado deve ficar semelhante a este:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/plot-bar.png&quot; alt=&quot;Plot bar&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note que São Paulo é o estado com mais ocorrências.&lt;/p&gt;
+
+&lt;h2 id=&quot;gráfico-de-classificação-de-ocorrências&quot;&gt;Gráfico de classificação de ocorrências&lt;/h2&gt;
+
+&lt;p&gt;Neste caso, geraremos um gráfico de pizza que mostra a porcentagem para cada tipo de ocorrência. Segue o código:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;grupo_classificacao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ocorrencia_classificacao'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_classificacao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drop_duplicates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grupo_classificacao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ocorrencia_classificacao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value_counts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;autopct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%.2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shadow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startangle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Na primeira linha estamos agrupando os resultados por classificação (a ideia é bem semelhante ao &lt;em&gt;GROUP BY&lt;/em&gt; que temos no SQL). O método &lt;code class=&quot;highlighter-rouge&quot;&gt;groupby&lt;/code&gt; retorna os dados agrupados contidos em um tipo de dado chamado &lt;em&gt;GroupBy&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Na segunda linha estamos criando os labels para o gráfico, para que a visualização seja mais precisa e agradável.&lt;/p&gt;
+
+&lt;p&gt;Na terceira linha estamos gerando o gráfico de pizza com a contagem de ocorrências por tipo de ocorrência. Além disso, estamos configurando a exibição do gráfico informando que queremos que seja exibida também a porcentagem (&lt;code class=&quot;highlighter-rouge&quot;&gt;autopct='%.2f%%'&lt;/code&gt;), uma sombra (&lt;code class=&quot;highlighter-rouge&quot;&gt;shadow=True&lt;/code&gt;) e uma leve inclinação (&lt;code class=&quot;highlighter-rouge&quot;&gt;startangle=90&lt;/code&gt;) para que o gráfico fique mais bonito, além claro de informarmos quais serão os labels que queremos mostrar.&lt;/p&gt;
+
+&lt;p&gt;Na quarta linha estamos removendo o label para o eixo Y, já que nesse caso ele não é necessário.&lt;/p&gt;
+
+&lt;p&gt;O resultado deve ficar semelhante ao abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/images/plot-pie.png&quot; alt=&quot;Plot pie&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note que &lt;em&gt;INCIDENTE GRAVE&lt;/em&gt; é o tipo mais comum de ocorrência.&lt;/p&gt;
+
+&lt;p&gt;Para salvar a imagem, basta executar o código abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'classificacao_ocorrencias.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bbox_inches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'tight'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;concluindo&quot;&gt;Concluindo&lt;/h2&gt;
+&lt;p&gt;Neste tutorial é possível entender o básico de pandas e matplotlib, para mais informações leia a documentação dos mesmos :)&lt;/p&gt;
+
+&lt;p&gt;Segue o notebook completo com todos os exemplos deste tuturial: &lt;a href=&quot;https://github.com/marquesds/analise_ocorrencias_aviacao_brasileira&quot;&gt;https://github.com/marquesds/analise_ocorrencias_aviacao_brasileira&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Valeu ;)&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="python" />
+      
+
+      
+        <summary type="html">Antes de começarmos,</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Como evitar RecursionError em Python</title>
@@ -131,6 +309,156 @@
 
       
         <summary type="html">Hoje me deparei com um problema bem interessante no codesignal:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Flush Memcached</title>
+      <link href="/flush-memcached" rel="alternate" type="text/html" title="Flush Memcached" />
+      <published>2017-09-14T07:00:00-03:00</published>
+      <updated>2017-09-14T07:00:00-03:00</updated>
+      <id>/flush-memcached</id>
+      <content type="html" xml:base="/flush-memcached">&lt;p&gt;To flush your local memcached follow the steps below:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;telnet 127.0.0.1 11211
+flush_all
+quit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="linux" />
+      
+
+      
+        <summary type="html">To flush your local memcached follow the steps below:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Bypass SSL - Python Zeep and Suds</title>
+      <link href="/bypass-ssl" rel="alternate" type="text/html" title="Bypass SSL - Python Zeep and Suds" />
+      <published>2017-09-10T07:00:00-03:00</published>
+      <updated>2017-09-10T07:00:00-03:00</updated>
+      <id>/bypass-ssl</id>
+      <content type="html" xml:base="/bypass-ssl">&lt;p&gt;When you try to consume a webservice with an invalid certificate, both &lt;a href=&quot;http://docs.python-zeep.org/en/master/&quot;&gt;python-zeep&lt;/a&gt; and &lt;a href=&quot;https://bitbucket.org/jurko/suds&quot;&gt;suds&lt;/a&gt; may raise an error that looks like: &lt;code class=&quot;highlighter-rouge&quot;&gt;requests.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:600)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can bypass this error with the snippets below:&lt;/p&gt;
+
+&lt;h3 id=&quot;python-zeep&quot;&gt;Python Zeep&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;zeep.transports&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Transport&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;zeep&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verify&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;transport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'your_webservice?wsdl'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;suds&quot;&gt;Suds&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Before instantiate suds client&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ssl&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;_create_unverified_https_context&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_create_unverified_context&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;AttributeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_create_default_https_context&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_create_unverified_https_context&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="snippets" />
+      
+        <category term="python" />
+      
+
+      
+        <summary type="html">When you try to consume a webservice with an invalid certificate, both python-zeep and suds may raise an error that looks like: requests.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:600).</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">How to create a new Ubuntu user via bash</title>
+      <link href="/create-ubuntu-user" rel="alternate" type="text/html" title="How to create a new Ubuntu user via bash" />
+      <published>2017-09-10T07:00:00-03:00</published>
+      <updated>2017-09-10T07:00:00-03:00</updated>
+      <id>/create-ubuntu-user</id>
+      <content type="html" xml:base="/create-ubuntu-user">&lt;p&gt;Follow the steps below to create a new user with sudo privileges on Ubuntu:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Add an user lucas and its home folder at /home/lucas&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;useradd &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; /home/lucas &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; lucas
+&lt;span class=&quot;c&quot;&gt;# Add a password for user lucas&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;passwd lucas
+&lt;span class=&quot;c&quot;&gt;# Make bash as default terminal&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash lucas
+&lt;span class=&quot;c&quot;&gt;# Add lucas to sudoers group&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;adduser lucas &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Lucas Marques</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="snippets" />
+      
+        <category term="linux" />
+      
+
+      
+        <summary type="html">Follow the steps below to create a new user with sudo privileges on Ubuntu:</summary>
       
 
       
