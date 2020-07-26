@@ -1,28 +1,25 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.name | xml_escape }} - Articles</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+    <title> - Articles</title>
+    <description>Knowledge repository of a guy with memory issues.</description>
     <link>
-    {{ site.url }}</link>
-    {% for post in site.posts %}
-      {% unless post.link %}
+    </link>
+    
+      
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        {% if post.excerpt %}
-          <description>{{ post.excerpt | xml_escape }}</description>
-        {% else %}
-          <description>{{ post.content | xml_escape }}</description>
-        {% endif %}
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <title>Como evitar RecursionError em Python</title>
+        
+          <description>&lt;p&gt;Hoje me deparei com um problema bem interessante no &lt;a href=&quot;https://codesignal.com/&quot; target=&quot;_blank&quot;&gt;codesignal&lt;/a&gt;:&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 19 Mar 2018 07:00:00 -0300</pubDate>
         <link>
-        {{ site.url }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        /evitar-recursion-error-python</link>
+        <guid isPermaLink="true">/evitar-recursion-error-python</guid>
       </item>
-      {% endunless %}
-    {% endfor %}
+      
+    
   </channel>
 </rss>
