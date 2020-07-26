@@ -3,6 +3,7 @@ layout: post
 current: post
 cover:  assets/images/terminal.jpeg
 navigation: True
+comments: true
 title: Flush Memcached
 date: 2017-09-14 10:00:00
 tags: [linux]

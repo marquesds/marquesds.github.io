@@ -11,7 +11,7 @@ baseurl: /
 # Website info
 title: Lucas Marques
 description: Knowledge repository of a guy with memory issues.
-cover: assets/images/blog-cover.jpg
+cover: assets/images/memory.jpg
 logo:
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png

@@ -3,6 +3,7 @@ layout: post
 current: post
 cover:  assets/images/mice-bypass.jpg
 navigation: True
+comments: true
 title: Bypass SSL - Python Zeep and Suds
 date: 2017-09-10 10:00:00
 tags: [snippets, python]

@@ -3,6 +3,7 @@ layout: post
 current: post
 cover:  assets/images/dog-chase-tail.jpg
 navigation: True
+comments: true
 title: Como evitar RecursionError em Python
 date: 2018-03-19 10:00:00
 tags: [python]

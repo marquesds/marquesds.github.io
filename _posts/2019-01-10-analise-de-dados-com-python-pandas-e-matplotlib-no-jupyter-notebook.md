@@ -3,6 +3,7 @@ layout: post
 current: post
 cover:  assets/images/data-analysis.png
 navigation: True
+comments: true
 title: Análise de dados com Python, Pandas e Matplotlib no Jupyter Notebook
 date: 2019-01-10 10:00:00
 tags: [python]

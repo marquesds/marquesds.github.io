@@ -3,6 +3,7 @@ layout: post
 current: post
 cover:  assets/images/ubuntu.jpg
 navigation: True
+comments: true
 title: How to create a new Ubuntu user via bash
 date: 2017-09-10 10:00:00
 tags: [snippets, linux]
