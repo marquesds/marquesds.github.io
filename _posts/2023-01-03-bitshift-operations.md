@@ -20,12 +20,12 @@ Let's vizualize it in another way, filling the "blank" spaces with zero:
 - `0509 * 10 = 5090`;
 - `1000 / 10 = 0100`;
 
-As you can see, multiplying or dividing a Base 10 number by `10` is the same as shifting this number to the right (multiplication) or to the left (division). You can do something similar with binary numbers.
+As you can see, multiplying or dividing a Base 10 number by `10` is the same as shifting this number to the right (division) or to the left (multiplication). You can do something similar with binary numbers.
 
 # Base 2
 While on Base 10 we can operate with `10` numbers, as you can conclude, the Base 2 let us operate only with `2` numbers: `0, 1`. When you think about electronic devices such as a computer this Base is very useful, because it can represent an electrical sign set as `ON` or `OFF` (turning a bit on or off - `0` or `1` - respectively).
 
-Performing mathematical operations over Base 2 numbers follows the same logic as with Base 10 numbers, but with Base 10 we have a more rich representation. For example, `0001 + 0001 = 0010` (which is `2` on Base 10), because since we only have two numbers, we need more space (more bits) to represent the whole result.
+Performing mathematical operations over Base 2 numbers follows the same logic as with Base 10 numbers, but with Base 10 we have a richier representation. For example, `0001 + 0001 = 0010` (which is `2` on Base 10), because since we only have two numbers, we need more space (more bits) to represent the whole result.
 
 Each bit can contain only `0` or `1`, so we can conclude that the maximum number that the first bit can hold is `2ˆ0` (which, of course, is `1`), the second bit can hold `2ˆ1 + 2^0 = 3`, the third bit can hold `2^2 + 2^1 + 2^0 = 7`, and so on. So, every time we add more bits we can hold more numbers. For example, the maximum number a binary with four bits can hold is `2^3 + 2^2 + 2^1 + 2^0 = 15`, so `1111 = 15`:
 
@@ -34,9 +34,9 @@ Each bit can contain only `0` or `1`, so we can conclude that the maximum number
 |`2^3`| + |`2^2`| + |`2^1`| + |`2^0`|
 
 # Bitshifting
-As multiplying or dividing a Base 10 number by `10` the result is a number shifted to the right or to the left, if we multiply or divide a Base 2 number by `2^N` (two to the power of number `N`) the result will be a bit shifted to the right or to the left as well. The syntax that most programming language uses to represent this operation is:
-- Bitshift right (multiplication): `>>`;
-- Bitshift left (division): `<<`;
+As multiplying or dividing a Base 10 number by `10` the result is a number shifted to the left or to the right, if we multiply or divide a Base 2 number by `2^N` (two to the power of number `N`) the result will be a bit shifted to the left or to the right as well. The syntax that most programming language uses to represent this operation is:
+- Bitshift left (multiplication): `<<`;
+- Bitshift right (division): `>>`;
 
 Examples:
 - `0001 << 2^1 = 0010`, because `1 * 2 = 2`;
