@@ -20,7 +20,7 @@ Let's vizualize it in another way, filling the "blank" spaces with zero:
 - `0509 * 10 = 5090`;
 - `1000 / 10 = 0100`;
 
-As you can see, multiplying or dividing a Base 10 number by `10` is the same as shifting this number to the right (division) or to the left (multiplication). You can do something similar with binary numbers.
+As you can see, multiplying or dividing a Base 10 number by `10` is the same as shifting this number to the left (multiplication) or to the right (division). You can do something similar with binary numbers.
 
 # Base 2
 While on Base 10 we can operate with `10` numbers, as you can conclude, the Base 2 let us operate only with `2` numbers: `0, 1`. When you think about electronic devices such as a computer this Base is very useful, because it can represent an electrical sign set as `ON` or `OFF` (turning a bit on or off - `0` or `1` - respectively).
