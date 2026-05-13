@@ -1,7 +1,7 @@
 ---
 title: A style harness for AI coding agents
 author: lucas
-date: 2026-05-13 12:00:00 -0300
+date: 2026-05-13 09:00:00 -0300
 categories: [Blogging, Essay]
 tags: [ai-agents, harness-engineering, coding-style, claude-code]
 ---
