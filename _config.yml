@@ -21,7 +21,7 @@ timezone: America/Sao_Paulo
 
 title: Lucas Marques                          # the main title
 
-tagline: Christian, married, and a passionate Software Engineer who is currently learning more about data.   # it will display as the sub-title
+tagline: Christian, husband, father, and software engineer. Shipping backend systems, real-time flows, and AI-powered tooling.   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A blog about software engineering, software architecture, and data in general.
@@ -33,7 +33,7 @@ github:
   username: marquesds             # change to your github username
 
 twitter:
-  username: lmarquesds            # change to your twitter username
+  username: elm4rks            # change to your twitter username
 
 linkedin:
   username: marquesds
@@ -45,7 +45,7 @@ social:
   email: lucasmarquesds@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/lmarquesds      # change to your twitter homepage
+    - https://twitter.com/elm4rks      # change to your twitter homepage
     - https://github.com/marquesds       # change to your github homepage
     - https://www.linkedin.com/in/marquesds
     # Uncomment below to add more social links
