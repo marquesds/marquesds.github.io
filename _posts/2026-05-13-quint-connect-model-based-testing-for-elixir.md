@@ -3,7 +3,8 @@ title: quint-connect, model-based testing for Elixir with Quint
 author: lucas
 date: 2026-05-13 10:00:00 -0300
 categories: [Blogging, Essay]
-tags: [elixir, quint, model-based-testing, formal-methods, ai-agents, harness-engineering]
+tags: [elixir, quint, model-based-testing, formal-methods, ai-agents, harness-engineering, ai, harness, llm]
+description: quint-connect is an Elixir library that runs Quint specifications as model-based tests on real code, turning state-space exploration into ExUnit assertions.
 ---
 
 Most test suites check examples. You write a function, write tests against the inputs you happened to think of, and ship. The bug you find in production is usually the one you did not think to test, because you cannot remember inputs you did not imagine. Specifications close part of that gap. A spec describes how the system is allowed to behave, and a tool walks the state space looking for behaviour that breaks the description. Different shape of test, different kind of feedback.

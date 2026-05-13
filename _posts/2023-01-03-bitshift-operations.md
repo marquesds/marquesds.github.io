@@ -4,6 +4,7 @@ author: lucas
 date: 2023-01-26 20:30:00 -0300
 categories: [Blogging, Tutorial]
 tags: [binary, bitshift, math]
+description: A friendly introduction to bitshift operations, why shifting bits multiplies or divides by powers of two, with worked examples in base 10 and base 2.
 ---
 
 # Introduction

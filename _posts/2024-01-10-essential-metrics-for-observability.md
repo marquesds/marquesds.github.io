@@ -4,6 +4,7 @@ author: lucas
 date: 2024-01-10 18:30:00 -0300
 categories: [Blogging, Tutorial, Observability]
 tags: [observability, metrics]
+description: The three pillars of observability (metrics, traces, logs) and the essential metrics every backend service should emit to stay debuggable in production.
 ---
 
 Observability is a powerful technique that allows you to monitor the internal state of your application using external tools. Simply put, it's like having an electrocardiogram to monitor your system.

@@ -1,0 +1,18 @@
+<!-- Custom metadata: Person (author) JSON-LD for SEO/knowledge-graph eligibility. -->
+{% assign avatar_url = site.cdn | append: site.avatar %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.social.name | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "image": {{ avatar_url | jsonify }},
+  "jobTitle": "Software Engineer",
+  "description": {{ site.tagline | jsonify }},
+  "sameAs": [
+    {%- for link in site.social.links -%}
+      {{ link | jsonify }}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>

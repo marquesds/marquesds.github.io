@@ -3,7 +3,8 @@ title: A style harness for AI coding agents
 author: lucas
 date: 2026-05-13 09:00:00 -0300
 categories: [Blogging, Essay]
-tags: [ai-agents, harness-engineering, coding-style, claude-code]
+tags: [ai-agents, harness-engineering, coding-style, claude-code, ai, harness, llm]
+description: A language-agnostic style harness for AI coding agents — one source of truth that installs into Claude Code, Cursor, and others so they write your style.
 ---
 
 Coding agents write whatever you give them. Give them nothing and they default to averages from their training data. Give them your style and they write your style. That gap is where I have been spending most of my AI engineering time.
@@ -83,9 +84,9 @@ I use cheap models (haiku, flash, composer 2) for reading code, running tests, a
 
 Even with all these techniques shared around, every codebase is different. Architecture, documentation, tests, sharp edges, and agent failure modes are different in every repo. So each codebase probably needs its own continuous improvement loop for agentic coding.
 
-That is the bet behind a weekend project I just published called [Kaizen](https://github.com/marquesds/kaizen){:target="_blank"}: telemetry from code agents, retrospectives focused on agent performance, and recommendations for harness improvements based on real agent behavior. Optional export to Datadog or PostHog for teams that want cross-repo insights.
+That is the bet behind a weekend project I just published called [Kaizen](https://github.com/marquesds/kaizen){:target="_blank"} — I wrote up the design in [Kaizen, a feedback loop for agentic coding](/posts/kaizen-a-feedback-loop-for-agentic-coding/): telemetry from code agents, retrospectives focused on agent performance, and recommendations for harness improvements based on real agent behavior. Optional export to Datadog or PostHog for teams that want cross-repo insights.
 
-One thing that helped a lot while building Kaizen was using Quint (built and maintained by Gabriela Moreira) to verify parts of the system. An executable spec gave me a tighter feedback loop and let me use weaker LLMs for most of the implementation.
+One thing that helped a lot while building Kaizen was using Quint (built and maintained by Gabriela Moreira) to verify parts of the system. An executable spec gave me a tighter feedback loop and let me use weaker LLMs for most of the implementation. The Elixir glue I built for that workflow is described in [quint-connect, model-based testing for Elixir with Quint](/posts/quint-connect-model-based-testing-for-elixir/).
 
 # Closing
 

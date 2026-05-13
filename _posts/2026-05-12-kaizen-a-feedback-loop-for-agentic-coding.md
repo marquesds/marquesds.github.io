@@ -3,7 +3,8 @@ title: Kaizen, a feedback loop for agentic coding
 author: lucas
 date: 2026-05-12 09:00:00 -0300
 categories: [Blogging, Essay]
-tags: [ai-agents, harness-engineering, agentic-coding, observability, kaizen]
+tags: [ai-agents, harness-engineering, agentic-coding, observability, kaizen, ai, harness, llm]
+description: Kaizen turns coding-agent transcripts into a feedback loop — instrument the harness, surface wasted tokens, and improve the rules the agent runs under.
 ---
 
 A coding agent that wastes tokens looks fine from the outside. Tests pass. The PR opens. You read the diff and it works. What you do not see is the thirty tool calls it took to get there, the file it read four times because it forgot, the skill that fired but contributed nothing, and the rule it quietly ignored. We instrument almost everything in modern software except the thing that now writes a meaningful fraction of our code.
@@ -65,7 +66,9 @@ Kaizen exposes its read paths as a stdio MCP server. The agent itself can call `
 
 The piece I am most happy with is the spec. Kaizen has a handful of properties that absolutely must hold. Redaction is complete before any sync. Ingest is idempotent. The session lifecycle never loses an event. The retro pipeline is pure. These are easy to claim and hard to verify with unit tests alone.
 
-So a chunk of the design lives as [Quint](https://github.com/informalsystems/quint){:target="_blank"} models, written in the language built and maintained by Gabriela Moreira and her team at Informal Systems. Quint catches the kind of bug that unit tests do not, and an executable spec turned out to be the tighter feedback loop I needed. With the spec in front of me, I could lean on weaker LLMs (composer 2, haiku) for most of the implementation and trust them, because the spec held the contract. Strongly recommend trying it on your next side project.
+So a chunk of the design lives as [Quint](https://github.com/informalsystems/quint){:target="_blank"} models, written in the language built and maintained by Gabriela Moreira and her team at Informal Systems. Quint catches the kind of bug that unit tests do not, and an executable spec turned out to be the tighter feedback loop I needed. With the spec in front of me, I could lean on weaker LLMs (composer 2, haiku) for most of the implementation and trust them, because the spec held the contract. Strongly recommend trying it on your next side project. I wrote a small Elixir companion library for the same idea, [quint-connect](/posts/quint-connect-model-based-testing-for-elixir/), if you want to see what model-based testing on top of Quint looks like in practice.
+
+A lot of the rules Kaizen ends up reinforcing started life in my [style harness for AI coding agents](/posts/a-style-harness-for-ai-coding-agents/). Kaizen measures whether they actually pay off; style declares them in the first place.
 
 # Closing
 

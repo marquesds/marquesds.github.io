@@ -44,8 +44,11 @@ social:
     - https://www.linkedin.com/in/marquesds
 
 # Site Verification Settings
+# Paste verification tokens here after registering the site in each console.
+# Google Search Console: https://search.google.com/search-console (select HTML tag method, copy the `content` value).
+# Bing Webmaster Tools:  https://www.bing.com/webmasters (Meta tag option, copy the `content` value).
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google:
   bing:
   alexa:
   yandex:
@@ -101,7 +104,8 @@ avatar: "/avatar/7b88a2f54bd4fafa4880a0ddfa444b1c?s=256"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+# Absolute URL avoids the `cdn` rewrite (which would otherwise prepend the gravatar CDN to a local path).
+social_preview_image: "https://lucasmarques.me/assets/img/og-default.png"
 
 # boolean type, the global switch for TOC in posts.
 toc: true
