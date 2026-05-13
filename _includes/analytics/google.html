@@ -1,0 +1,101 @@
+<!--
+  Google Analytics with Consent Mode v2 + a minimal accept/decline banner.
+  Overrides the Chirpy default to:
+    1. Set consent defaults (denied) BEFORE gtag.js executes (LGPD/GDPR posture).
+    2. Tighten cookie flags (SameSite=Strict;Secure) and force IP anonymization.
+    3. Inject a banner on first visit; choice persists in localStorage.
+-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  (function () {
+    var stored = null;
+    try { stored = JSON.parse(localStorage.getItem('cm_consent')); } catch (_) {}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: stored && stored.analytics ? 'granted' : 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  })();
+</script>
+
+<script defer src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.id }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gtag('js', new Date());
+    gtag('config', '{{ site.analytics.google.id }}', {
+      anonymize_ip: true,
+      cookie_flags: 'SameSite=Strict;Secure'
+    });
+
+    if (localStorage.getItem('cm_consent')) return;
+
+    var banner = document.createElement('div');
+    banner.id = 'cm-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML =
+      '<p>This site uses Google Analytics to understand readership. Allow analytics cookies?</p>' +
+      '<div class="cm-actions">' +
+        '<button type="button" id="cm-decline">Decline</button>' +
+        '<button type="button" id="cm-accept">Accept</button>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    function persist(granted) {
+      try {
+        localStorage.setItem('cm_consent', JSON.stringify({ analytics: granted, at: Date.now() }));
+      } catch (_) {}
+      gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+      banner.remove();
+    }
+
+    document.getElementById('cm-accept').addEventListener('click', function () { persist(true); });
+    document.getElementById('cm-decline').addEventListener('click', function () { persist(false); });
+  });
+</script>
+
+<style>
+  #cm-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--card-bg, #1b1b1e);
+    color: var(--text-color, #e8eaed);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    z-index: 1080;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  #cm-banner p { margin: 0 0 0.75rem 0; }
+  #cm-banner .cm-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
+  #cm-banner button {
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.375rem;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+  }
+  #cm-banner #cm-accept {
+    background: #3a82f7;
+    border-color: transparent;
+    color: #fff;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #cm-banner { animation: cm-rise 0.25s ease-out; }
+    @keyframes cm-rise { from { transform: translateY(20px); opacity: 0; } }
+  }
+</style>
