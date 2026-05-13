@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Hello 👋🏾 I'm Lucas Marques, a Staff Software Engineer based in São Paulo with 10+ years of experience. Christian, husband to Lari, and father to Levi 👶🏽.
+Hello 👋🏾 I'm Lucas Marques, a Staff Software Engineer based in São Paulo with 15+ years of experience. Christian, husband to Lari, and father to Levi 👶🏽.
 
 I build distributed systems and have shipped production code across fintech, healthtech, and AI workflows. Lately I work on real-time pipelines, agent tooling, and backend platforms — currently at [Telepatia AI](https://github.com/Telepatia-AI){:target="_blank"}. I'm comfortable across Elixir, Rust, TypeScript/NestJS, Python, and Temporal-based orchestration.
 
